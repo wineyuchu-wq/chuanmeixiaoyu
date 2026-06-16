@@ -79,7 +79,7 @@
     max-height:0;overflow:hidden;transition:max-height .3s ease;
     border-top:0 solid var(--line);
   }
-  .card.open .card-body{max-height:460px;border-top:1px solid var(--line)}
+  .card.open .card-body{max-height:900px;border-top:1px solid var(--line)}
   .detail{padding:20px 24px;display:grid;grid-template-columns:96px 1fr;gap:10px 18px;font-size:14.5px}
   .detail dt{color:var(--clay);font-weight:700}
   .detail dd{color:var(--ink)}
@@ -217,19 +217,94 @@
   .contact .note{font-size:13px;color:#B9C5C2}
   footer{background:var(--green-deep);color:#8FA09D;text-align:center;font-size:12px;padding:24px 0;border-top:1px solid rgba(255,255,255,.08)}
 
-  @media(max-width:640px){
-    .path-step:not(:last-child)::after{display:none}
-    .detail{grid-template-columns:1fr;gap:4px 0}
-    .detail dt{margin-top:8px}
-    .card-head{flex-wrap:wrap}
-    .str-grid{grid-template-columns:1fr;gap:24px}
+  /* ====== 平板 ====== */
+  @media(max-width:900px){
+    .resume-show{grid-template-columns:1fr;gap:24px}
     .team-grid{grid-template-columns:1fr}
-    .member{padding:22px;gap:16px}
+  }
+
+  /* ====== 手机 ====== */
+  @media(max-width:640px){
+    /* 统一收窄左右留白，避免内容被挤 */
+    .wrap{padding:0 16px}
+    section{padding:48px 0}
+
+    /* Hero */
+    header.hero{padding:60px 0 52px}
+    .hero h1{font-size:clamp(26px,7.5vw,34px);line-height:1.4}
+    .hero p.sub{font-size:15px;margin-top:20px}
+    .hero .cta{gap:12px;margin-top:30px}
+    .btn{padding:12px 22px;font-size:14px}
+    .hero .cta .btn{flex:1;text-align:center}
+    .hero .marks{font-size:12px;line-height:1.9;margin-top:34px}
+
+    /* 路径时间线：改成纵向，去掉箭头 */
+    .path{padding:40px 0}
+    .path-inner{flex-direction:column;gap:4px}
+    .path-step{min-width:auto;padding:14px 4px;border-bottom:1px dashed var(--line)}
+    .path-step:last-child{border-bottom:none}
+    .path-step:not(:last-child)::after{display:none}
+    .path-step h3{font-size:19px;margin:6px 0 4px}
+
+    /* 标题 */
+    .sec-head{flex-wrap:wrap;gap:6px}
+    .sec-head h2{font-size:24px}
+    .sec-desc{font-size:14px;margin-bottom:26px}
+
+    /* 卡片 / 手风琴 */
+    .card-head{flex-wrap:wrap;padding:16px 18px}
+    .card-head h3{font-size:17px}
+    .card-head .price{font-size:16px}
+    .card.open .card-body{max-height:1200px}
+    .detail{grid-template-columns:1fr;gap:4px 0;padding:18px}
+    .detail dt{margin-top:10px}
+
+    /* 战绩 */
+    .str-grid{grid-template-columns:1fr;gap:22px}
+    .str-fact .big{font-size:19px}
+    .str-note{font-size:14px;padding-left:14px}
+
+    /* 团队 */
+    .team-grid{grid-template-columns:1fr}
+    .member{padding:20px;gap:16px}
     .member .avatar{flex-basis:60px;width:60px;height:60px}
+    .member h3{font-size:18px}
+
+    /* 样品展示 */
+    .showcase{margin-top:34px}
+    .show-block h3{font-size:20px}
+    .show-block .lead{font-size:14.5px}
+
+    /* 学员档案：双列改单列内边距收窄 */
+    .archive{padding:22px 18px}
+    .arch-grid{grid-template-columns:1fr 1fr;gap:10px}
+    .arch-item{padding:11px 12px}
+
+    /* 定位报告：收窄内边距，表格更紧凑 */
+    .report{padding:22px 18px}
+    .report .r-title{font-size:18px}
+    .rtable{font-size:13px}
+    .rtable td{padding:8px 10px}
+    .rtable td.k{width:32%}
+    .swot{grid-template-columns:1fr;gap:10px}
+    .tier .lv{flex-basis:52px}
+    .r-foot{font-size:13px;padding-left:14px}
+
+    /* 简历样品 */
     .resume-show{grid-template-columns:1fr;gap:20px}
-    .swot{grid-template-columns:1fr}
-    .rtable td.k{width:34%}
-    .tier .lv{flex-basis:54px}
+    .resume-pic{min-height:auto}
+    .rc-points li{font-size:14px}
+
+    /* 联系 */
+    .contact h2{font-size:24px}
+    .contact .wx{font-size:17px}
+  }
+
+  /* ====== 小屏手机 ====== */
+  @media(max-width:380px){
+    .arch-grid{grid-template-columns:1fr}
+    .hero .cta{flex-direction:column}
+    .hero .cta .btn{width:100%}
   }
 </style>
 </head>
